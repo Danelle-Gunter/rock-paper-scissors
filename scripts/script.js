@@ -22,13 +22,26 @@ let playerSelection = function() {
 /**
  * Plays a single round of the game
  * 
- * @param {string} computerSelection A choice from that function
- * @param {string} playerSelection An input from that function
+ * @param {string} computer A choice from the program
+ * @param {string} player An input from the player
  * 
  */
-// function playGame(computerSelection, playerSelection) {
+function playGame(computer, player) {
+    // Using length b/c js is like that
+    if (computer.length === player.length) {
+        // computer and user picks same thing
+        console.log("Tie!");
+    } //else if (computer.length < player.length)
+        // computer picks rock
+        // computer picks paper
+        // user picks paper
+        // user picks scissors
+    // computer picks paper
+        // user picks rock
+        // user picks scissors
+    // computer picks scissors
+        // user picks paper
+        // user picks rock
+}
 
-// }
-
-console.log(playerSelection());
-console.log(computerSelection());
+playGame(computerSelection(), playerSelection());

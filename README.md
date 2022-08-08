@@ -1,4 +1,9 @@
 # rock-paper-scissors
-Rock, paper, scissors game
 
-A simple implementation on the rock, paper, scissors game.
+A simple implementation of Rock, Paper, Scissors.
+Currently, only playable through the console.
+
+### Known bug:
+
+- If player presses escape or cancel, game crashes.
+ 

@@ -47,28 +47,47 @@ function validateChoice(rps) {
  * @param {string} player An input from the player
  * 
  */
-function playGame(computer, player) {
-    // for testing purposes
-    console.log("Computer: " + computer);
-    console.log("Player: " + player);
-
-    let compWins = "Computer wins!";
-    let playWins = "Player wins!";
+function playRound(computer, player) {
+    let compWins = `Computer wins! ${computer} beats ${player}`;
+    let playWins = `Player wins! ${player} beats ${computer}!`;
+    // let winner = "";
 
     // Using length b/c js is like that
+    /*
+    * Since each word is of a different length, I am only comparing lengths.
+    */
     if (computer.length === player.length) {
         // computer and user pick the same thing
-        console.log("Tie!");
+        console.log(`Tie! ${player} versus ${computer}!`);
     } else if (computer.length === 4) { // computer = ROCK
-        (player.length === 5) ? console.log(playWins) :
-        console.log(compWins);  
+        if (player.length === 5) {
+            return playWins;
+        } else {
+            return compWins;  
+        }
     } else if (computer.length === 5) { // computer = PAPER
-        (player.length === 8) ? console.log(playWins) :
-        console.log(compWins);
+        if (player.length === 8) {
+            return playWins;
+        } else {
+            return compWins;
+        }
     } else if (computer.length === 8) { // computer = SCISSORS
-        (player.length === 4) ? console.log(playWins) :
-        console.log(compWins);
+        if (player.length === 4) {
+            return playWins;
+        } else {
+            return compWins;
+        }
     }
 }
 
-playGame(computerSelection(), playerSelection());
+/**
+ * Plays game 5 times, keeps score, and reports a winner and loser at the end
+ */
+function game() {
+    for (let i = 0; i < 5; i++) {
+        console.log(playRound(computerSelection(), playerSelection()));
+    }
+}
+
+game();
+

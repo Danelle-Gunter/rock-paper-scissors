@@ -15,9 +15,24 @@ let computerSelection = function() {
  * @returns {string} Player's input
  */
 let playerSelection = function() {
-    let choice = prompt("Select ROCK, PAPER, or SCISSORS: ").toLowerCase();    
+    let choice = "";
+    do {
+        choice = prompt("Select ROCK, PAPER, or SCISSORS: ").toLowerCase();    
+    }
+    while (!validateChoice(choice));
     return choice;
 };
+
+function validateChoice(rps) {
+    switch(rps){
+        case 'paper':
+        case 'rock':
+        case 'scissors':
+            return true;
+        default:
+            return false;
+    }
+}
 
 /**
  * Plays a single round of the game
@@ -27,11 +42,18 @@ let playerSelection = function() {
  * 
  */
 function playGame(computer, player) {
+    // for testing purposes
+    console.log("Computer: " + computer);
+    console.log("Player: " + player);
+
     // Using length b/c js is like that
     if (computer.length === player.length) {
-        // computer and user picks same thing
+        // computer and user pick the same thing
         console.log("Tie!");
-    } //else if (computer.length < player.length)
+    } else {
+        console.log("NO TIE");
+    } 
+    //else if (computer.length < player.length)
         // computer picks rock
         // computer picks paper
         // user picks paper

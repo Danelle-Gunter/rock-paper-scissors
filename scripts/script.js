@@ -1,5 +1,5 @@
 /**
- * Returns a random selection from the array
+ * Returns a random selection from the array for a computer's choice
  * 
  * @returns {string} A random selection from the array
  */
@@ -53,12 +53,10 @@ function playRound(computer, player) {
     // let winner = "";
 
     // Using length b/c js is like that
-    /*
-    * Since each word is of a different length, I am only comparing lengths.
-    */
+    // Since each word is of a different length, I am only comparing lengths.
     if (computer.length === player.length) {
         // computer and user pick the same thing
-        console.log(`Tie! ${player} versus ${computer}!`);
+        return `Tie! ${player} matches ${computer}!`;
     } else if (computer.length === 4) { // computer = ROCK
         if (player.length === 5) {
             return playWins;
@@ -82,12 +80,39 @@ function playRound(computer, player) {
 
 /**
  * Plays game 5 times, keeps score, and reports a winner and loser at the end
- */
+ * 
+ * @returns {string} The results of the game
+*/
 function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+    let scoreResults = "";
+
     for (let i = 0; i < 5; i++) {
-        console.log(playRound(computerSelection(), playerSelection()));
+        console.log(`Round ${i + 1}:`);
+        let gameResults = playRound(computerSelection(), playerSelection());
+        switch (gameResults.charAt(0)) {
+            case 'P':
+                playerScore++;
+                break;
+            case 'C':
+                computerScore++;
+                break;
+            default:
+                break;
+        }
+        console.log(gameResults);
+    }
+
+    scoreResults = `${playerScore} - ${computerScore}`;
+
+    if (playerScore === computerScore) {
+        console.log(`A tie! ${scoreResults}`);
+    } else if (playerScore > computerScore) {
+        console.log(`Player wins! ${scoreResults}`);
+    } else {
+        console.log(`Computer wins! ${scoreResults}`);
     }
 }
 
 game();
-

@@ -9,19 +9,40 @@ let computerSelection = function() {
     return choices[index];
 };
 
+// testing the buttons
+// const btnRock = document.querySelector('.btn-rock');
+// const btnPaper = document.querySelector('.btn-paper');
+// const btnScissors = document.querySelector('.btn-scissors');
+
+// btnRock.addEventListener('click', action);
+// btnPaper.addEventListener('click', action);
+// btnScissors.addEventListener('click', action);
+
+// this works
+const btn = document.querySelectorAll('.btn');
+
+btn.forEach((item => {
+    item.addEventListener('click', playerSelection);
+}));
+
+function playerSelection() {
+    let choice = this.dataset.type;
+    console.log(playRound(computerSelection(), choice));
+}
+
 /**
  * Asks player for input and returns that input
  * 
  * @returns {string} Player's input
  */
-let playerSelection = function() {
-    let choice = "";
-    do {
-        choice = prompt("Select ROCK, PAPER, or SCISSORS: ").toLowerCase();    
-    }
-    while (!validateChoice(choice));
-    return choice;
-};
+// let playerSelection = function() {
+//     let choice = "";
+//     do {
+//         choice = prompt("Select ROCK, PAPER, or SCISSORS: ").toLowerCase();    
+//     }
+//     while (!validateChoice(choice));
+//     return choice;
+// };
 
 /**
  * Takes player input and compares to what should be used
@@ -29,16 +50,16 @@ let playerSelection = function() {
  * @param {string} rps Player's input 
  * @returns If the input was correct
  */
-function validateChoice(rps) {
-    switch(rps){
-        case 'paper':
-        case 'rock':
-        case 'scissors':
-            return true;
-        default:
-            return false;
-    }
-}
+// function validateChoice(rps) {
+//     switch(rps){
+//         case 'paper':
+//         case 'rock':
+//         case 'scissors':
+//             return true;
+//         default:
+//             return false;
+//     }
+// }
 
 /**
  * Plays a single round of the game

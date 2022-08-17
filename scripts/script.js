@@ -10,11 +10,16 @@ function startGame() {
     // make the choices appear
     const container = document.querySelector('.container');
     container.classList.remove('hide');
-    // grab the player's choice and start a round
+    // grab the player's choice
     const btn = document.querySelectorAll('.btn');
     btn.forEach((item => {
-        item.addEventListener('click', playerSelection);
+        item.addEventListener('click', function () {
+            let choice = this.dataset.type;
+            let results = document.querySelector('.results');
+            results.textContent = `${(playGame(computerSelection(), choice))}`;
+        });
     }));
+    // play game with both choices
 }
 
 /**
@@ -31,11 +36,9 @@ let computerSelection = function() {
 /**
  * Gets player's button choice
  */
-function playerSelection() {
-    let choice = this.dataset.type;
-    let results = document.querySelector('.results');
-    results.textContent = `${(playGame(computerSelection(), choice))}`;
-}
+// function playerSelection() {
+//     let choice = this.dataset.type;
+// }
 
 /**
  * Plays a single round of the game
@@ -47,7 +50,7 @@ function playerSelection() {
 function playGame(computer, player) {
     let compWins = `Computer wins! ${computer} beats ${player}`;
     let playWins = `Player wins! ${player} beats ${computer}!`;
-    // let winner = "";
+    let winner = "";
 
     // Using length b/c js is like that
     // Since each word is of a different length, I am only comparing lengths.

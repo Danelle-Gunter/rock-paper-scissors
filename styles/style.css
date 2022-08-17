@@ -31,12 +31,22 @@ h1 {
 h3 {
     margin: 20px;
     text-align: center;
+    font-size: 24px;
 }
 
-.play {
+.play,
+.results {
     display: flex;
     flex-direction: column;
     margin: 20px;
+}
+
+.results {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: green;
+    margin-top: 30px;
 }
 
 .buttons {

@@ -1,4 +1,4 @@
-// Game will start with only the 'Play Game button available
+// Page will only have the 'Play Game button available
 const playButton = document.querySelector('.play-btn');
 
 playButton.addEventListener('click', startGame);

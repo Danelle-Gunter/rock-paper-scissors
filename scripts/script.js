@@ -34,8 +34,7 @@ let computerSelection = function() {
 function playerSelection() {
     let choice = this.dataset.type;
     let results = document.querySelector('.results');
-    results.textContent = `${(playRound(computerSelection(), choice))}`;
-    //return choice;
+    results.textContent = `${(playGame(computerSelection(), choice))}`;
 }
 
 /**
@@ -45,7 +44,7 @@ function playerSelection() {
  * @param {string} player An input from the player
  * 
  */
-function playRound(computer, player) {
+function playGame(computer, player) {
     let compWins = `Computer wins! ${computer} beats ${player}`;
     let playWins = `Player wins! ${player} beats ${computer}!`;
     // let winner = "";
